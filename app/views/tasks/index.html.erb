@@ -1,0 +1,15 @@
+<h1>This is your task list</h1>
+<% @tasks.each do |task|%>
+  <h3>
+  <% if task.completed? %>
+    <input class= "inline-block" type="checkbox" name="completed" checked>
+  <% else %>
+    <input class= "inline-block" type="checkbox" name="completed">
+  <% end %>
+   <p class= "inline-block"><%= link_to task.title, task_path(task) %></p>
+   <p class= "inline-block"><%= link_to "Delete task", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %></p>
+   <br>
+  </h3>
+<% end %>
+<p><%= link_to "Add a new task", new_path %></p>
+
